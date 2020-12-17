@@ -1,34 +1,12 @@
 import React from "react";
-import {SearchBar} from "../SearchBar/SearchBar";
-import SearchResultList from "../SearchResultList/SearchResultList";
+import { SearchBar } from "../SearchBar/SearchBar";
 
-class SearchPage extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            searchText:""
-        }
-    }
+export const SearchPage = (props) => {
+    const {performSearch} = props;
+    return (
+        <div style={{maxWidth:"50vW"}}>
+            <SearchBar performSearch={performSearch}></SearchBar>
+        </div>
+    )
 
-    handleSearchTextChange= (searchText)=>{
-        this.setState({searchText});
-    }
-
-    performSearch = ()=>{
-        console.log(this.state.searchText)
-    }
-
-    render(){
-        return (
-            <div>
-                <h1> 
-                    Hey there search page {this.state.searchText}
-                </h1>
-                <SearchBar performSearch={this.performSearch}
-                handleSearchTextChange={this.handleSearchTextChange}></SearchBar>
-                <SearchResultList></SearchResultList>
-            </div>
-        )
-    }
 }
-export default SearchPage;

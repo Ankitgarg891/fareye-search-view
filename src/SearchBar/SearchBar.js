@@ -1,12 +1,13 @@
+import { Card } from "antd";
+import Search from "antd/lib/input/Search";
 import React from "react";
 
-export const SearchBar = ({performSearch,handleSearchTextChange})=>{
+export const SearchBar = ({performSearch,style})=>{
    return(
-       <div>
-            <h1>Hey from search</h1>
-            <input type="text" onChange={(e)=>handleSearchTextChange(e.target.value)}></input>
-            <button onClick={()=>performSearch()}>Daba de</button>
-       </div>
-    
+       <Card style={style}>
+            <h1>Fareye Search</h1>
+            <Search placeholder="input search text" 
+            enterButton="Search" size="middle"  onSearch={(e)=>performSearch(e)}/>
+       </Card>
    )
 }
