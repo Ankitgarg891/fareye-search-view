@@ -1,0 +1,38 @@
+.card-body .ant-card-body{
+
+    text-align: left;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    padding-top: 12px  ;
+    padding-bottom: 12px !important;
+
+}
+
+.card-box-title {
+    -webkit-box-orient : vertical;
+    font-size: 24px;
+    color: blue;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    margin-bottom: 12px;
+  }
+
+.card-box-sub-title {
+    -webkit-box-orient : vertical;
+    font-size: 14px;
+    color: black;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    margin-bottom: 12px;
+
+  }
+
+  .card-box-date {
+     font-size: 12px;
+     text-align: right;
+  
+  }

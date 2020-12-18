@@ -1,5 +1,7 @@
 import React from "react";
 import { Card, Row, Col, Input } from "antd";
+import './design.css'
+
 const color1 = (type) => {
     switch (type) {
         case "RCA":
@@ -28,24 +30,53 @@ export const SearchResultCard = (props) => {
     const { id, title, description, type, info, lastUpdatedAt, externalUrl } = props.searchEntity;
     return (
 
-        <Row style={{ marginBottom: "12px" }}>
-            <Col span={1} style={{ backgroundColor: color1(type) }}>
+        <Row style={{ marginBottom: "24px" }}>
+            <Col span={1} >
+
+
+                <Col
+                    style={{ width: '70%' }}
+
+                ></Col>
+
+                <Col
+
+                    style={{
+                        backgroundColor: color1(type),
+                        width: '30%',
+                        height: '100%',
+                        marginRight: '-10px'
+
+                    }}
+
+                >
+
+                </Col>
             </Col>
+
+
             <Col span={23}>
                 <Card
+                    onClick={() => props.handleCardClick(props.searchEntity)}
                     hoverable={true}
-                    style={{ textAlign: 'left' }}
+                    className="card-body"
                 >
-                    <h1 style={{
-                        size: "24px",
-                        // hoverable : ""                    
-                    }}
-                        onClick={() => props.handleCardClick(props.searchEntity)
-                        }
+                    <span
+                        className="card-box-title"
+                    >{title}</span>
+                    <span
+                        className="card-box-sub-title"
+                    >{description} </span>
+                    <Row>
+                        <span
+                            className="card-box-date"
+                        >{lastUpdatedAt}
+                        </span>
 
-                    >{title}</h1>
-                    <p>{description}</p>
-                    <small>{lastUpdatedAt}</small>
+
+
+                    </Row>
+
 
 
                 </Card>
