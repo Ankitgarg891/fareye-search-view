@@ -5,7 +5,7 @@ import { SearchPage } from "../SearchPage/SearchPage";
 import { SearchResultList } from "../SearchResultList/SearchResultList";
 import { HomeOutlined } from "@ant-design/icons"
 import { Row, Col } from "antd";
-import { dataJson } from "../json.js";
+import { mainContainerSearvice } from "./MainContainerService";
 const typeConstants = {
 
     RCA: "RCA",
@@ -22,27 +22,25 @@ const typeConstants = {
 //         "externalUrl": "http://placehold.it/32x32"
 
 
-
-
-
 class MainContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             searchPerformed: false,
             searchText: "",
-
-            searchResults: dataJson
+            searchResults: []
         }
     }
 
-    performSearch = (searchText) => {
+    performSearch = async (searchText) => {
         this.setState({ searchPerformed: true })
+        var searchResults = await mainContainerSearvice.performSearch(searchText);
+        this.setState({searchResults});
         console.log(searchText)
     }
 
     renderSearchPage = (searchText) => {
-        return (<SearchPage performSearch={this.performSearch}></SearchPage>)
+        return (<SearchPage performSearch={(e)=>this.performSearch(e.target.value)}></SearchPage>)
     }
 
     handleCardClick = (sidePanelEntity) => {
@@ -51,7 +49,6 @@ class MainContainer extends React.Component {
 
 
     renderResultPage = () => {
-        console.log(dataJson);
         return (
             <div>
 
